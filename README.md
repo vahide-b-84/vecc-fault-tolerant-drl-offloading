@@ -16,36 +16,50 @@ cd vecc-fault-tolerant-drl-offloading
 pip install -r requirements.txt
 ```
 
+### SUMO Setup
+This project requires SUMO for vehicular mobility simulation.
+
+- Install SUMO from the official website: https://www.eclipse.org/sumo/
+- Ensure that SUMO is added to your system PATH
+- Make sure TraCI is properly configured for Python interaction
+
 ## Running
-Before running the simulation scenarios, execute:
+
+### Step 1: Configuration
+Before running the simulation, ensure that the configuration files (e.g., `configuration.py`, `params.py`) are set according to the desired scenario.
+
+### Step 2: Pre-Simulation Setup
+Run the following script to generate the required input data:
 
 ```bash
 python before_Simulation.py
 ```
 
-This script performs the pre-simulation data generation step. It:
-- loads the SUMO network, RSU, and vehicle route files,
+This step:
+- loads the SUMO network and mobility data,
 - generates RSU-to-RSU link properties,
-- saves the extracted graph and metadata to `graph_data.json`,
-- generates the global task queue in `taskQueue.json`,
-- and creates the parameter files:
+- creates `graph_data.json` and `taskQueue.json`,
+- generates parameter files:
   - `homogeneous_server_info.xlsx`
   - `heterogeneous_server_info.xlsx`
   - `task_parameters.xlsx`
 
-These generated files are used by the simulation framework in the subsequent experiments.
+This step should typically be executed only once before running all compared methods to ensure fair evaluation under identical data.
 
-Since this step regenerates the input/parameter files, it should typically be executed only once before running the compared methods and scenarios, so that all methods are evaluated under the same generated data.
-
-After that, run the main simulation:
+### Step 3: Main Simulation
 
 ```bash
 python project_main.py
 ```
 
-During simulation, the raw experiment outputs are automatically saved through `save.py` in:
+During simulation, raw results are saved via `save.py` in:
 - `heterogeneous_results/`
 - `homogeneous_results/`
+
+### Notes
+- The `before_Simulation.py` script must be executed before running the main simulation.
+- Ensure that SUMO and TraCI are properly installed and configured.
+- The generated input files will be overwritten if the pre-simulation step is executed again.
 
 ## Result Aggregation
 After the raw simulation outputs have been generated, execute:
