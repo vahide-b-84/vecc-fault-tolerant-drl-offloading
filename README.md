@@ -78,11 +78,10 @@ This repository includes all components required to reproduce the experimental r
 - Input datasets
 
 ## Citation
-If you use this code, please cite the corresponding paper (currently under review):
+If you use this code, please cite the corresponding paper:
 
-"A Bi-Level Mobility-Aware Deep Reinforcement Learning Approach for Fault-Tolerant Task Offloading in Vehicular Edge-Cloud Computing."
+Babaiyan, V., Bushehrian, O. & Javidan, R. A bi-level mobility-aware deep reinforcement learning approach for fault-tolerant task offloading in vehicular edge-cloud computing. Sci Rep 16, 11703 (2026). https://doi.org/10.1038/s41598-026-45763-z
 
-Full citation details will be updated upon publication.
 
 ## License
 MIT License
